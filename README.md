@@ -5,7 +5,6 @@
 - ### HTML
 - ### CSS
 - ### JavaScript
+- ### Git
 
 ---
-
----git
