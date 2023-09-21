@@ -16,10 +16,6 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    position: relative;
-    min-height: 100vh;
-    align-items: center;
 }
 
 .container {
@@ -27,7 +23,7 @@ body {
     margin: 0 auto;
 }
 .menu {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -87,8 +83,10 @@ body {
 }
 
 .header-txt {
-    width: 40%;
-    margin-left: 60px;
+    width: 50%; 
+    margin: 5% auto;
+    margin-bottom: 6%; 
+    /*NO SE TOCA jeje MASSSSSSSSS :)*/
 }
 .header-txt h1 {
     font-size: 70px;
@@ -96,60 +94,48 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     color: #23395b;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-family: 'Roboto Condensed', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+
 }
 .header-txt p {
+    /*no toques*/
+    width: 600px;
     font-size: 22px;
-    color: #FFFFFF;
+    color: #110d49;
+    font-style: italic;
     font-weight: 500;
     margin-bottom: 25px;
     font-family: 'Roboto Condensed', sans-serif;
+    white-space: pre-line;
+    
+    border-radius: 10px;
 }
 
-.btn-1 {
-    display: inline-block;
-    padding: 13px 20px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    background-color: #23395b;
-    box-shadow: 0 0 20px rgba(0,0,0, 0.4);
-    font-family: 'Roboto Condensed', sans-serif;
-    transition: transform 0.3s ease;
-}
-.btn-1:hover {
-    color: #FFFFFF;
-    transform: scale(1.2);
-}
-#acceder {
-    background-color: transparent;
-    border: none;
-}
-
-.images {
-    width: 800px;
-    height: 380px;
-    top: 23%;
-    position: absolute;
-    right: 0;
-
-}
-
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
+.swiper-wrapper{
+    width:100%;
+    margin-left:30px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    position: relative;
 }
+.swiper-slide {
+    position: relative; /* El contenedor se posiciona de manera relativa para que los elementos absolutos sean relativos a él */
+    width: 300px; 
+    display: flex;
+    margin: 30px;
+}
+.swiper-slide > a {
+    display: block; 
+    position: relative; 
+  }
 .swiper-slide h3 {
+    padding: 10px; 
     position: absolute;
-    left: 30px;
+    left: 50px;
     bottom: 0px;
     color: #FFFFFF;
     font-family: 'Roboto Condensed', sans-serif;
@@ -158,51 +144,160 @@ body {
 }
 
 .swiper-slide img {
-    display: block;
-    width: 80%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;
     border-radius: 15px;
 }
 
-.rows {
-    width: 150px;
-    position: absolute;
-    right: 635px;
-    bottom: 135px;
-    transition: transform 0.3s ease;
 
-}
+/*==============================RESPONSE DESING MOBILE==============================*/
 
-.swiper-button-prev {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    font-size: 15px;
-    transition: transform 0.3s ease;
-}
-.swiper-button-next {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    font-size: 15px;
-    transition: transform 0.3s ease;
-}
-.swiper-button-prev::after {
-    font-size: 25px;
-    color: #FFFFFF;
-}
-.swiper-button-prev:hover {
-    color: #FFFFFF;
-    transform: scale(1.2);
-}
-.swiper-button-next:hover {
-    color: #FFFFFF;
-    transform: scale(1.2);
-}
-.swiper-button-next::after {
-    font-size: 25px;
-    color: #FFFFFF;
-}
+@media screen and (min-width: 280px) and (max-width: 480px) {
+    .menu{
+        height: 80px;
+    }
+    .navbar{
+        display: none;
+    }
+    .iconos{
+        width: 50%; 
+        margin: 0 auto;
+    }
+    .header-txt{
+        margin-left:20px;
+    }
+    .header-txt p {
+        display:none;
+    }
+    .header-txt h1 {
+        font-size: 20px;
+        margin-bottom: -15px;
+    }
+    
+    .swiper-slide img {
+        width: 80%;
+        border-radius: 15px;
+        /*NO SE TOCA MAS :)*/
+    }
+    #toggle-menu {
+        display: flex;
+    }
+    .abrir-menu {
+        width: 80px;
+        height: 120px;
+        text-align: center;
+        font-size: 25px;
+        background-color: rgba(2, 18, 49, 0.7);
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        cursor: pointer;
+        padding: 0px;
+        z-index: 2;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+    }
+    .menu2 {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #000408;
+        z-index: 2;
+    }
+    .abrir-menu::after{
+        content: attr(data-open);
+        color: #e7edf5;
+        font-size: 30px;
+    }
+    #toggle-menu:checked + .abrir-menu::after{
+        content: attr(data-close);
+    }
+    .lista-menu { 
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .lista-menu li {
+        padding: 10px 0;
+    }
+    .lista-menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        display: block;
+        padding: 10px 20px;
+        transition: background-color 0.3;
+    
+    }
+    .lista-menu a:hover{
+        background-color: #5366f5;
+    }
+    
+    #toggle-menu:checked~.menu2 {
+        left: 0;
+    }
+    #toggle-menu:checked~.abrir-menu {
+        left:300px
+    }
+    #toggle-menu:checked~.contenido {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1;
+    }
+  }
+  
+  /*==============================RESPONSE DESING TABLET==============================*/
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .header-txt h1 {
+        font-size: 20px;
+        margin-bottom: -15px;
+    }
+    #toggle-menu {
+        display: none;
+    }
+    .abrir-menu {
+        width: 80px;
+        height: 120px;
+        text-align: center;
+        font-size: 25px;
+        background-color: rgba(2, 18, 49, 0.7);
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        cursor: pointer;
+        padding: 0px;
+        z-index: 2;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+    }
+    .menu {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #000408;
+        z-index: 2;
+    }
+  }
+  
+  /*==============================RESPONSE DESING TABLET HORIZONTAL Y NOTEBOOK==============================*/
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+    .header-txt h1 {
+        font-size: 40px;
+        margin-bottom: -15px;
+    }
+    .header-content.conteiner{
+        margin-right:200px;
+    }
+    .menu{
+        height: 120px;
+    }
+  }
