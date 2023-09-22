@@ -107,7 +107,7 @@ body {
     color: #110d49;
     font-style: italic;
     font-weight: 500;
-    margin-bottom: 25px;
+    margin-bottom: -60px;
     font-family: 'Roboto Condensed', sans-serif;
     white-space: pre-line;
     
@@ -123,7 +123,7 @@ body {
     justify-content: center;
 }
 .swiper-slide {
-    position: relative; /* El contenedor se posiciona de manera relativa para que los elementos absolutos sean relativos a él */
+    position: relative; 
     width: 300px; 
     display: flex;
     margin: 30px;
@@ -147,7 +147,16 @@ body {
     width: 100%;
     border-radius: 15px;
 }
-
+footer{
+   
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #23395b;
+        color: #fff; 
+        padding: 10px; 
+        text-align: center;
+}
 
 /*==============================RESPONSE DESING MOBILE==============================*/
 
@@ -163,14 +172,23 @@ body {
         margin: 0 auto;
     }
     .header-txt{
-        margin-left:20px;
+        margin-left:-10px;
+        display: block;
+        justify-content: center; 
+        align-items: center;
+        width: 400px;
     }
     .header-txt p {
-        display:none;
+        max-width: fit-content;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 10px;
     }
     .header-txt h1 {
         font-size: 20px;
         margin-bottom: -15px;
+        margin-left: 10px;
     }
     
     .swiper-slide img {
@@ -178,77 +196,12 @@ body {
         border-radius: 15px;
         /*NO SE TOCA MAS :)*/
     }
-    #toggle-menu {
-        display: flex;
+    .swiper-wrapper{
+        margin-left: 5px;
     }
-    .abrir-menu {
-        width: 80px;
-        height: 120px;
-        text-align: center;
-        font-size: 25px;
-        background-color: rgba(2, 18, 49, 0.7);
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        cursor: pointer;
-        padding: 0px;
-        z-index: 2;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
-    }
-    .menu2 {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #000408;
-        z-index: 2;
-    }
-    .abrir-menu::after{
-        content: attr(data-open);
-        color: #e7edf5;
-        font-size: 30px;
-    }
-    #toggle-menu:checked + .abrir-menu::after{
-        content: attr(data-close);
-    }
-    .lista-menu { 
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .lista-menu li {
-        padding: 10px 0;
-    }
-    .lista-menu a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 18px;
-        display: block;
-        padding: 10px 20px;
-        transition: background-color 0.3;
-    
-    }
-    .lista-menu a:hover{
-        background-color: #5366f5;
-    }
-    
-    #toggle-menu:checked~.menu2 {
-        left: 0;
-    }
-    #toggle-menu:checked~.abrir-menu {
-        left:300px
-    }
-    #toggle-menu:checked~.contenido {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 1;
-    }
+    footer {
+        position: static; 
+      }
   }
   
   /*==============================RESPONSE DESING TABLET==============================*/
@@ -286,6 +239,9 @@ body {
         background-color: #000408;
         z-index: 2;
     }
+    footer {
+        position: static; 
+      }
   }
   
   /*==============================RESPONSE DESING TABLET HORIZONTAL Y NOTEBOOK==============================*/
@@ -300,4 +256,7 @@ body {
     .menu{
         height: 120px;
     }
+    footer {
+        position: static; 
+      }
   }
